@@ -11,21 +11,28 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-interface Horse{
+interface Horse {
     name: string,
     description: string,
     coefficient: number,
     image: string,
-    id: number
 }
 
 const props = defineProps({
 
-    item:{
-        type: Object as () => Horse,
-        default: undefined
+    name: {
+        type: String,
+        default: "Имя лошади"
+    },
+    description: {
+        type: String,
+        default: "описание лошади"
+    },
+   coefficient: {
+        type: Number,
+        default: 0
     }
-    
+
 })
 
 
@@ -35,15 +42,15 @@ const props = defineProps({
 
 <style>
 .left-container {
-  padding: 30px;
-  height: 500px;
-  background-color: rgb(37, 37, 120);
-  border-radius: 10px;
-  margin-top: 50px;
+    padding: 30px;
+    height: 500px;
+    background-color: rgb(37, 37, 120);
+    border-radius: 10px;
+    margin-top: 50px;
 
 }
 
 .dop-text {
- color: burlywood;
+    color: burlywood;
 }
 </style>

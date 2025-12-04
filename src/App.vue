@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import LeftContainerCard from './components/common/LeftContainerCard.vue'
+import RightContainerCard from './components/common/RightContainerCard.vue'
 // const number = 123
 // const string = "qweddd"
 // const object = {
@@ -11,7 +12,6 @@ interface Horse{
     description: String,
     coefficient: Number,
     image: String,
-    id: Number
 }
 
 const selectedHorse = ref<Horse>()
@@ -55,11 +55,7 @@ const horses = [
   }
 ]
 
-
-
-
-
-const tabloValue = ref<Number>(0)
+// const
 
 </script>
 
@@ -68,16 +64,17 @@ const tabloValue = ref<Number>(0)
 
   <div class="main-container">
 
-
     <div class="side-col">
-
-      <LeftContainerCard :item="selectedHorse"/>
+      <LeftContainerCard :name="selectedHorse?.name" :description="selectedHorse?.description" :coefficient="selectedHorse?.coefficient"/>
     </div>
+
+
+
     <div class="central-col">
       <h1 class="title">Lydka </h1>
       <p class="text">Баланс:10000$</p>
+
       <div class="card-container">
-        {{ selectedHorse }}
         <!-- <img src="./assets/images/photo_4_2025-11-24_19-19-37.jpg">  -->
         <div class="card" v-for="horse in horses" @click="selectedHorse = horse">
           <div>
@@ -87,9 +84,14 @@ const tabloValue = ref<Number>(0)
         </div>
 
       </div>
+
     </div>
+
+
+
+
     <div class="side-col">
-      ewsewewe
+    <RightContainerCard  :coefficient="selectedHorse?.coefficient"/>
     </div>
 
   </div>
@@ -148,8 +150,8 @@ const tabloValue = ref<Number>(0)
 }
 
 .card {
-  width: 100px;
-  height: 120px;
+  width: 110px;
+  height: 130px;
   background-color: rgb(37, 37, 120);
   margin: 30px;
   border-radius: 10px;
